@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Graphics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <h1>Graphics</h1>
+    <div style="display: flex;">
+        <div style="width: 50%;">
+            <canvas id="graficoLinha"></canvas>
+        </div>
+        <div style="width: 50%;">
+            <canvas id="graficoBarra"></canvas>
+        </div>
+    </div>
+
+    <script>
+
+        var temperaturaLinha = [30, 29, 28, 25, 22, 23]
+        var umidadeLinha = [80, 82, 80, 85, 80, 83]
+
+        var temperaturaBarra = [22, 24, 27, 23, 20, 18]
+        var umidadeBarra = [90, 89, 93, 87, 88, 82]
+
+        var graficoLinha = new Chart(document.getElementById('graficoLinha').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                datasets: [{
+                    data: temperaturaLinha,
+                    label: 'Temperatura',
+                    borderColor: '#63B1BC',
+                    backgroundColor: 'black'
+                },
+                {
+                    data: umidadeLinha,
+                    label: 'Umidade',
+                    borderColor: '#63B1BC',
+                    backgroundColor: 'blue'
+                }
+            ]
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        
+                        beginAtZero: true,
+                    },
+                },
+            }
+        });
+
+        var graficoBarra = new Chart(document.getElementById('graficoBarra').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                datasets: [{
+                    data: temperaturaBarra,
+                    label: 'Temperatura',
+                    borderColor: '#63B1BC',
+                    backgroundColor: 'black'
+                },
+                {
+                    data: umidadeBarra,
+                    label: 'Umidade',
+                    borderColor: '#63B1BC',
+                    backgroundColor: 'blue'
+                }
+            ]
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+    </script>
+</body>
+
+</html>
